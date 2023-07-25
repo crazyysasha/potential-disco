@@ -1,32 +1,41 @@
-// console.log('hello JS');
+const str = `sdf`;
 
-const button = document.getElementById('button');
-button.addEventListener('click', function () {
-    console.log('this button is clicked');
+let num = 234233;
 
-    cart.innerHTML = 'korzina ' + count;
-    count++;
-});
-let count = 0;
-const h1 = document.querySelector('h1');
-// // h1.innerText = "hello <i>JS</i>"
-// h1.innerHTML = "hello <i>JS</i>"
-// var, let, const 
-let name1 = "Odilbek";
+let isTrue = true;
 
-console.log(name1);
+let arr = [
+    'Ozodbek',
+    'Odilbek',
+    "Sardorkin",
+    // isTrue, 
+    // typeof num,
+];
 
-name1 = "Ozodbek";
+console.log(typeof str, typeof num, typeof isTrue, arr);
 
-console.log(name1);
+arr.push('Sasha');
 
-name3 = 'dsfd';
+// console.log(arr[3]);
+
+arr[2] = 'Sardor'
+
+// arr = 2;
+
+console.log(typeof arr, Array.isArray(isTrue));
 
 
-console.log(name3);
+// console.log(['Odilbek', 'Sardor'][1]);
+const user = { name: 'Odilbek', surname: 'Mamayoqubov' };
+console.log(user.name);
+//  array name => users 
+//  name, surname, email, age, gender
 
-let type1 = "String";
 
-let number = 345;
+const sardor = { name: "Sardor", surname: 'Tulqinov', age: 14, email: 'sardorik64@gmail.com', git: 'SARDORIK1' };
 
-console.log(345 + '3544');
+const odil = { name: "Odilbek", surname: 'Mamayoqubov', age: 14, email: 'lol_1717@inbox.ru', git: 'ozolox123' };
+const ozod = { name: 'Ozodbek', surname: "Mamayoqubov", age: 11, email: 'odilbeklezgin@gmail.com', git: 'ozodbek180712' };
+const users = [sardor, odil, ozod];
+
+console.log(users);
