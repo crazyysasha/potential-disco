@@ -1,41 +1,86 @@
-const str = `sdf`;
+const x = '5';
 
-let num = 234233;
+const y = '8';
 
-let isTrue = true;
+// console.log(+x + +y);
 
-let arr = [
-    'Ozodbek',
-    'Odilbek',
-    "Sardorkin",
-    // isTrue, 
-    // typeof num,
-];
+function sum(arg1, arg2) {
+    console.log(+arg1 + +arg2);
+}
 
-console.log(typeof str, typeof num, typeof isTrue, arr);
+sum(x, y);
 
-arr.push('Sasha');
+sum(54, '23');
 
-// console.log(arr[3]);
-
-arr[2] = 'Sardor'
-
-// arr = 2;
-
-console.log(typeof arr, Array.isArray(isTrue));
+const minus = (arg1, arg2) => {
+    console.log(+arg1 - +arg2);
+}
 
 
-// console.log(['Odilbek', 'Sardor'][1]);
-const user = { name: 'Odilbek', surname: 'Mamayoqubov' };
-console.log(user.name);
-//  array name => users 
-//  name, surname, email, age, gender
+minus(54, 34);
 
 
-const sardor = { name: "Sardor", surname: 'Tulqinov', age: 14, email: 'sardorik64@gmail.com', git: 'SARDORIK1' };
 
-const odil = { name: "Odilbek", surname: 'Mamayoqubov', age: 14, email: 'lol_1717@inbox.ru', git: 'ozolox123' };
-const ozod = { name: 'Ozodbek', surname: "Mamayoqubov", age: 11, email: 'odilbeklezgin@gmail.com', git: 'ozodbek180712' };
-const users = [sardor, odil, ozod];
+class User {
+    name;
+    birthyear;
+    getAge() {
+        console.log(this.name + "u " + (2023 - this.birthyear) + " let");
+    }
+    constructor(n, b) {
+        this.name = n;
+        this.birthyear = b;
+    }
+}
 
-console.log(users);
+const sardorkin = new User("Sardor", 2009);
+
+
+sardorkin.getAge();
+
+console.log(sardorkin.name);
+
+const odil = new User('Ozodbek', 2012);
+
+odil.getAge();
+
+
+
+const shkola = { name: '10-shkola', rasstoyaniye: 1.5 };
+
+const iceberg = { name: '...', rasstoyaniye: 3.45 }
+
+
+function sum(shkola, iceberg) {
+    console.log(shkola.rasstoyaniye + iceberg.rasstoyaniye);
+}
+
+
+
+class Product {
+    name;
+    price;
+    constructor(n, p) {
+        this.name = n;
+        this.price = p;
+    }
+}
+
+const hp = new Product('HP noutbook', 1000);
+
+const iphone = new Product('Iphone XR', 800);
+
+const galaxy = new Product('Galaxy s23 ultra', 1400);
+
+
+function sumPrice(p1, p2, p3) {
+    console.log(p1.price + p2.price + p3.price);
+}
+
+sumPrice(hp, iphone, galaxy);
+
+// TODO: #2 Car: name, mileage
+//
+//  totalMileage
+//
+//  const tesla, bmw, nexia3
