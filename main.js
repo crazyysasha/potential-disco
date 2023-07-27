@@ -1,20 +1,20 @@
-const x = '7';
-
-const y = '5';
-
-function lol(arg1, arg2){
-    console.log(arg1-arg2)
+class car {
+price;
+car;
+ constructor(p, c){
+    this.price = p;
+    this.car = c;
+}
 }
 
-lol(x, y);
+const bmw = new car ('bmw car', 2500);
 
-function lolo(arg1, arg2){
-console.log( arg1*arg2)
+const tesla = new car ('tesla car', 3000);
+
+const nexia3 = new car ('nexia3 car', 1000);
+
+function sumCar(c1, c2, c3) {
+    console.log(c1.car + c2.car + c3.car);
 }
 
-lolo(x, y)
-
-function lolol(arg1, arg2){
-    console.log(arg1/arg2)
-}
-lolol(x, y)
+sumCar(bmw, tesla, nexia3)
