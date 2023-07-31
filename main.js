@@ -1,30 +1,90 @@
-//document, window, navigator
-
-console.dir(document.body.clientHeight);
-
-// document.body.addEventListener('click', function ({ target }) {
-//     console.log(target);
-// });
+const canvas = document.querySelector('#canvas');
 
 
-document.body.addEventListener('click', function (event) {
-    console.log(event.target);
+console.log(window);
+function onSetSizesToCanvas() {
+    canvas.height = 4 * window.innerHeight;
+    canvas.width = 4 * window.innerWidth;
+}
+
+onSetSizesToCanvas();
+
+const ctx = canvas.getContext('2d');
+window.addEventListener('resize', onSetSizesToCanvas);
+
+let lastX, lastY;
+
+let isDrawing, isFlat = false;
+
+document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey) {
+        isFlat = true;
+    }
+});
+document.addEventListener('keyup', function (event) {
+   
+    if (event.keyCode == 17) {
+        isFlat = false;
+    }
 });
 
-const button = document.querySelector('button');
+canvas.addEventListener('mousedown', function () {
+    isDrawing = true;
+});
 
-function onClickHandler(event) {
-    event.stopPropagation();
-    console.log('event on button: ', event.target);
-    console.log(event.clientX, event.clientY);
-    // button.removeEventListener('click', onClickHandler);
-}
-button.addEventListener('click', onClickHandler);
+canvas.addEventListener('mouseup', function () {
+    isDrawing = false;
+});
 
-const paragraphs = document.querySelectorAll('p');
 
-console.log(paragraphs);
+let flatStartX, flatStartY, axis;
 
-const sardorP = document.getElementsByClassName('sardor');
 
-console.log(sardorP);
+canvas.addEventListener('mousemove', function (event) {
+    console.log(flatStartX, flatStartY, axis);
+    if (isDrawing) {
+
+        if (lastX && lastY) {
+
+            if (isFlat) {
+
+                if (!flatStartX && !flatStartY) {
+                    flatStartX = event.clientX;
+                    flatStartY = event.clientY;
+                }
+                console.log(flatStartX, flatStartY);
+
+                ctx.moveTo(flatStartX, flatStartY);
+
+
+                if (flatStartX - event.clientX < flatStartY - event.clientY) {
+                    axis = 'y';
+                } else {
+                    axis = 'x';
+                }
+                if (axis == 'x') {
+                    ctx.lineTo(flatStartX, 4 * event.clientY);
+                } else if (axis == 'y') {
+                    ctx.lineTo(4 * event.clientX, flatStartY);
+
+                }
+            } else {
+                flatStartX = null;
+                flatStartY = null;
+                axis = null;
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(4 * event.clientX, 4 * event.clientY);
+
+            }
+            ctx.stroke();
+            ctx.lineWidth = 10;
+        }
+    }
+    lastX = 4 * event.clientX;
+    lastY = 4 * event.clientY;
+});
+
+canvas.addEventListener('dblclick', function () {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
