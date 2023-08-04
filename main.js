@@ -1,30 +1,21 @@
-//document, window, navigator
+import './style.css'
 
-console.dir(document.body.clientHeight);
+const form = document.querySelector('#createUserForm');
 
-// document.body.addEventListener('click', function ({ target }) {
-//     console.log(target);
-// });
+const output = document.querySelector('#output');
 
 
-document.body.addEventListener('click', function (event) {
-    console.log(event.target);
+const users = [];
+
+function writeOutput(value) {
+    output.innerHTML += `<li> ${value} </li>`
+}
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const name = event.target.elements.firstname.value;
+    users.push(name);
+    writeOutput(name);
+    event.target.reset();
 });
 
-const button = document.querySelector('button');
-
-function onClickHandler(event) {
-    event.stopPropagation();
-    console.log('event on button: ', event.target);
-    console.log(event.clientX, event.clientY);
-    // button.removeEventListener('click', onClickHandler);
-}
-button.addEventListener('click', onClickHandler);
-
-const paragraphs = document.querySelectorAll('p');
-
-console.log(paragraphs);
-
-const sardorP = document.getElementsByClassName('sardor');
-
-console.log(sardorP);

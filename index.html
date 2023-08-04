@@ -1,18 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
 </head>
 
 <body>
-    <p class="sardor" id="sarik">hello Sardor!</p>
-    <p>hello world!</p>
-    <button>click me!</button>
-    <a href="" class="sardor"></a>
-    <script src="main.js"></script>
+    <ul id="output">
+    </ul>
+
+    <form id="createUserForm">
+        <input type="text" placeholder="имя пользователя" class="border border-red-500 rounded-xl px-4 py-2" name="firstname">
+        <button class="px-4 py-2 ">
+            создать
+        </button>
+    </form>
+    <script type="module" src="/main.js"></script>
 </body>
 
 </html>
